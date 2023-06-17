@@ -1,0 +1,110 @@
+/*
+ * no_reload.scss:
+ * - keyframes fade-in-down
+ * - keyframes fade-in-up
+ * - keyframes fade-out-down
+ * - keyframes fade-out-up
+ * - .animate
+ * - %fade
+ * - .fade-in-down
+ * - .fade-in-up
+ * - .fade-out-down
+ * - .fade-out-up
+ */
+/*
+ * ToDo: ...
+ * ToDo -> $translate_y
+ */
+@keyframes fade-in-down {
+	0% {
+		opacity: 0;
+		transform: translateY(-100px);
+	}
+	100% {
+		opacity: initial;
+		transform: translateY(0);
+	}
+}
+/*
+ * ToDo: ...
+ * ToDo -> $translate_y
+ */
+@keyframes fade-in-up {
+	0% {
+		opacity: 0;
+		transform: translateY(100px);
+	}
+	100% {
+		opacity: initial;
+		transform: translateY(0);
+	}
+}
+/*
+ * ToDo: ...
+ * ToDo -> $translate_y
+ */
+@keyframes fade-out-down {
+	0% {
+		opacity: initial;
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(-100px);
+	}
+}
+/*
+ * ToDo: ...
+ * ToDo -> $translate_y
+ */
+@keyframes fade-out-up {
+	0% {
+		opacity: initial;
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(100px);
+	}
+}
+/* ToDo: ... */
+.animate {
+	opacity: 0;
+}
+
+/* ToDo: ... */
+.fade-out-up, .fade-out-down, .fade-in-up, .fade-in-down {
+	opacity: initial;
+}
+@media (prefers-reduced-motion: no-preference) {
+	.fade-out-up, .fade-out-down, .fade-in-up, .fade-in-down {
+		animation-duration: 1s;
+		animation-timing-function: ease;
+	}
+}
+
+/* ToDo: ... */
+@media (prefers-reduced-motion: no-preference) {
+	.fade-in-down {
+		animation-name: fade-in-down;
+	}
+}
+
+/* ToDo: ... */
+@media (prefers-reduced-motion: no-preference) {
+	.fade-in-up {
+		animation-name: fade-in-up;
+	}
+}
+
+/* ToDo: ... */
+@media (prefers-reduced-motion: no-preference) {
+	.fade-out-down {
+		animation-name: fade-out-down;
+	}
+}
+
+/* ToDo: ... */
+@media (prefers-reduced-motion: no-preference) {
+	.fade-out-up {
+		animation-name: fade-out-up;
+	}
+}/*# sourceMappingURL=no_reload.css.map */

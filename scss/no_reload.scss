@@ -1,0 +1,127 @@
+// Variables that are used will be defined.
+$translate_y: 100px;
+
+/*
+ * no_reload.scss:
+ * - keyframes fade-in-down
+ * - keyframes fade-in-up
+ * - keyframes fade-out-down
+ * - keyframes fade-out-up
+ * - .animate
+ * - %fade
+ * - .fade-in-down
+ * - .fade-in-up
+ * - .fade-out-down
+ * - .fade-out-up
+ */
+
+/*
+ * ToDo: ...
+ * ToDo -> $translate_y
+ */
+@keyframes fade-in-down{
+	0%{
+		opacity: 0;
+		transform: translateY($translate_y * (-1));
+	}
+	100%{
+		opacity: initial;
+		transform: translateY(0);
+	}
+}
+
+/*
+ * ToDo: ...
+ * ToDo -> $translate_y
+ */
+@keyframes fade-in-up{
+	0%{
+		opacity: 0;
+		transform: translateY($translate_y);
+	}
+	100%{
+		opacity: initial;
+		transform: translateY(0);
+	}
+}
+
+/*
+ * ToDo: ...
+ * ToDo -> $translate_y
+ */
+@keyframes fade-out-down{
+	0%{
+		opacity: initial;
+	}
+	100%{
+		opacity: 0;
+		transform: translateY($translate_y * (-1));
+	}
+}
+
+/*
+ * ToDo: ...
+ * ToDo -> $translate_y
+ */
+@keyframes fade-out-up{
+	0%{
+		opacity: initial;
+	}
+	100%{
+		opacity: 0;
+		transform: translateY($translate_y);
+	}
+}
+
+/* ToDo: ... */
+.animate{
+	opacity: 0;
+}
+
+/* ToDo: ... */
+%fade{
+	opacity: initial;
+
+	@media(prefers-reduced-motion: no-preference){
+		animation:{
+			duration: 1s;
+			timing-function: ease;
+		}
+	}
+}
+
+/* ToDo: ... */
+.fade-in-down{
+	@extend %fade;
+
+	@media(prefers-reduced-motion: no-preference){
+		animation-name: fade-in-down;
+	}
+}
+
+/* ToDo: ... */
+.fade-in-up{
+	@extend %fade;
+
+	@media(prefers-reduced-motion: no-preference){
+		animation-name: fade-in-up;
+	}
+}
+
+/* ToDo: ... */
+.fade-out-down{
+	@extend %fade;
+
+	@media(prefers-reduced-motion: no-preference){
+		animation-name: fade-out-down;
+	}
+}
+
+/* ToDo: ... */
+.fade-out-up{
+	@extend %fade;
+
+	@media(prefers-reduced-motion: no-preference){
+		animation-name: fade-out-up;
+	}
+}

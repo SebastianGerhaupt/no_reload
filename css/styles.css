@@ -1,0 +1,510 @@
+/*
+ * _layout.scss:
+ * - .column-#
+ * - %column
+ * - .container
+ * - .heading
+ * - .no-reload-label
+ * - .paragraph
+ * - .row
+ * - .section-container
+ * - .sticky
+ * - *
+ */
+/*
+ * A "column #" is a container for content.
+ * Columns are used inside rows, so they are flex-items. -> .row
+ * There is a maximum count of columns inside a row. -> $column_count
+ * The column width is set in percentage so they will always have the same relative size. -> $column_count, $grid_gutter_width
+ * ToDo -> %column
+ */
+.column-1 {
+	width: calc(100% / (12 / 1) - 1rem * (12 - 1) / 12);
+}
+
+.column-2 {
+	width: calc(100% / (12 / 2) - 1rem * (12 - 2) / 12);
+}
+
+.column-3 {
+	width: calc(100% / (12 / 3) - 1rem * (12 - 3) / 12);
+}
+
+.column-4 {
+	width: calc(100% / (12 / 4) - 1rem * (12 - 4) / 12);
+}
+
+.column-5 {
+	width: calc(100% / (12 / 5) - 1rem * (12 - 5) / 12);
+}
+
+.column-6 {
+	width: calc(100% / (12 / 6) - 1rem * (12 - 6) / 12);
+}
+
+.column-7 {
+	width: calc(100% / (12 / 7) - 1rem * (12 - 7) / 12);
+}
+
+.column-8 {
+	width: calc(100% / (12 / 8) - 1rem * (12 - 8) / 12);
+}
+
+.column-9 {
+	width: calc(100% / (12 / 9) - 1rem * (12 - 9) / 12);
+}
+
+.column-10 {
+	width: calc(100% / (12 / 10) - 1rem * (12 - 10) / 12);
+}
+
+.column-11 {
+	width: calc(100% / (12 / 11) - 1rem * (12 - 11) / 12);
+}
+
+.column-12 {
+	width: calc(100% / (12 / 12) - 1rem * (12 - 12) / 12);
+}
+
+/*
+ * ToDo: ...
+ * Columns have spacing between them. -> $grid_gutter_width
+ */
+.column-1 + .column-1, .column-2 + .column-1, .column-3 + .column-1, .column-4 + .column-1, .column-5 + .column-1, .column-6 + .column-1, .column-7 + .column-1, .column-8 + .column-1, .column-9 + .column-1, .column-10 + .column-1, .column-11 + .column-1, .column-12 + .column-1, .column-1 + .column-2, .column-2 + .column-2, .column-3 + .column-2, .column-4 + .column-2, .column-5 + .column-2, .column-6 + .column-2, .column-7 + .column-2, .column-8 + .column-2, .column-9 + .column-2, .column-10 + .column-2, .column-11 + .column-2, .column-12 + .column-2, .column-1 + .column-3, .column-2 + .column-3, .column-3 + .column-3, .column-4 + .column-3, .column-5 + .column-3, .column-6 + .column-3, .column-7 + .column-3, .column-8 + .column-3, .column-9 + .column-3, .column-10 + .column-3, .column-11 + .column-3, .column-12 + .column-3, .column-1 + .column-4, .column-2 + .column-4, .column-3 + .column-4, .column-4 + .column-4, .column-5 + .column-4, .column-6 + .column-4, .column-7 + .column-4, .column-8 + .column-4, .column-9 + .column-4, .column-10 + .column-4, .column-11 + .column-4, .column-12 + .column-4, .column-1 + .column-5, .column-2 + .column-5, .column-3 + .column-5, .column-4 + .column-5, .column-5 + .column-5, .column-6 + .column-5, .column-7 + .column-5, .column-8 + .column-5, .column-9 + .column-5, .column-10 + .column-5, .column-11 + .column-5, .column-12 + .column-5, .column-1 + .column-6, .column-2 + .column-6, .column-3 + .column-6, .column-4 + .column-6, .column-5 + .column-6, .column-6 + .column-6, .column-7 + .column-6, .column-8 + .column-6, .column-9 + .column-6, .column-10 + .column-6, .column-11 + .column-6, .column-12 + .column-6, .column-1 + .column-7, .column-2 + .column-7, .column-3 + .column-7, .column-4 + .column-7, .column-5 + .column-7, .column-6 + .column-7, .column-7 + .column-7, .column-8 + .column-7, .column-9 + .column-7, .column-10 + .column-7, .column-11 + .column-7, .column-12 + .column-7, .column-1 + .column-8, .column-2 + .column-8, .column-3 + .column-8, .column-4 + .column-8, .column-5 + .column-8, .column-6 + .column-8, .column-7 + .column-8, .column-8 + .column-8, .column-9 + .column-8, .column-10 + .column-8, .column-11 + .column-8, .column-12 + .column-8, .column-1 + .column-9, .column-2 + .column-9, .column-3 + .column-9, .column-4 + .column-9, .column-5 + .column-9, .column-6 + .column-9, .column-7 + .column-9, .column-8 + .column-9, .column-9 + .column-9, .column-10 + .column-9, .column-11 + .column-9, .column-12 + .column-9, .column-1 + .column-10, .column-2 + .column-10, .column-3 + .column-10, .column-4 + .column-10, .column-5 + .column-10, .column-6 + .column-10, .column-7 + .column-10, .column-8 + .column-10, .column-9 + .column-10, .column-10 + .column-10, .column-11 + .column-10, .column-12 + .column-10, .column-1 + .column-11, .column-2 + .column-11, .column-3 + .column-11, .column-4 + .column-11, .column-5 + .column-11, .column-6 + .column-11, .column-7 + .column-11, .column-8 + .column-11, .column-9 + .column-11, .column-10 + .column-11, .column-11 + .column-11, .column-12 + .column-11, .column-1 + .column-12, .column-2 + .column-12, .column-3 + .column-12, .column-4 + .column-12, .column-5 + .column-12, .column-6 + .column-12, .column-7 + .column-12, .column-8 + .column-12, .column-9 + .column-12, .column-10 + .column-12, .column-11 + .column-12, .column-12 + .column-12 {
+	margin-left: 1rem;
+}
+
+/*
+ * ToDo: ...
+ * ToDo -> $margin_reset
+ * ToDo -> $container_padding_y
+ * ToDo -> $container_padding_y
+ */
+.container {
+	margin: 0px;
+	padding-bottom: 8rem;
+	padding-top: 8rem;
+}
+
+/*
+ * ToDo: ...
+ * ToDo -> $main_color
+ * ToDo -> $font_family_monserat
+ * ToDo -> $container_padding_y
+ * ToDo -> $margin_reset
+ * ToDo -> $heading_font_size, $matching_gradient_4
+ */
+.heading {
+	color: hsl(0, 0%, 8%);
+	font-family: "Montserrat", sans-serif;
+	font-size: 4rem;
+	font-weight: 900;
+	line-height: 1;
+	margin-bottom: 8rem;
+	margin-top: 0px;
+	text-shadow: 4rem 1.32rem hsl(178, 15%, 58%);
+}
+
+/*
+ * ToDo: ...
+ * ToDo -> ...
+ */
+.no-reload-label {
+	font-weight: 900;
+	pointer-events: none;
+}
+
+/*
+ * ToDo: ...
+ * ToDo -> $main_color
+ * ToDo -> $font_family_nunito
+ * ToDo -> $margin_reset
+ */
+.paragraph {
+	color: hsl(0, 0%, 8%);
+	font-family: "Nunito", sans-serif;
+	font-size: 1.25rem;
+	margin-top: 0px;
+}
+
+/*
+ * A "row" is a wrapper for columns. -> .column-#
+ * Rows are flex-containers.
+ * Columns are horizontally and vertically centered inside rows.
+ * Rows have vertical spacing between them. -> $grid_gutter_width
+ */
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+.row + .row {
+	margin-top: 1rem;
+}
+
+/* ToDo: ... */
+.section-container + .section-container {
+	margin-top: 8rem;
+}
+
+/*
+ * ToDo: ...
+ * ToDo -> $container_padding_y
+ */
+.sticky {
+	margin-left: auto;
+	margin-right: auto;
+	position: sticky;
+	top: 8rem;
+	width: fit-content;
+}
+
+/*
+ * The universal selector sets definitions for all elements.
+ * The box-sizing for all elements is set. -> $universal_box_sizing
+ * The pseudo-elements "::before" and "::after" of every element get the same box-sizing value as the selected element.
+ * ToDo: ...
+ * ToDo -> $grid_gutter_width
+ * ToDo -> $margin_reset
+ */
+* {
+	box-sizing: border-box;
+}
+*::before {
+	box-sizing: border-box;
+}
+*::after {
+	box-sizing: border-box;
+}
+.section-container > * {
+	margin-bottom: 1rem;
+}
+.section-container > *:last-child {
+	margin-bottom: 0px;
+}
+
+/*
+ * _navigation.scss (header):
+ * - .icon-arrow-right-short
+ * - .navigation
+ * - .navigation-icon-position-#
+ * - .navigation-link
+ */
+/*
+ * ToDo: ...
+ * ToDo -> $navigation_link_font_size
+ */
+.icon-arrow-right-short {
+	left: -1.5rem;
+	position: absolute;
+}
+@media (prefers-reduced-motion: no-preference) {
+	.icon-arrow-right-short {
+		transition-duration: 0.5s;
+		transition-property: top;
+		transition-timing-function: ease;
+	}
+}
+.icon-arrow-right-short > svg {
+	height: 2rem;
+}
+
+/*
+ * ToDo: ...
+ * ToDo -> $margin_reset
+ * ToDo -> $margin_reset
+ * ToDo -> $padding_reset
+ */
+.navigation {
+	list-style-type: none;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	padding-left: 0px;
+}
+
+/*
+ * ToDo: ...
+ * ToDo -> $navigation_link_count
+ * ToDo -> $navigation_link_font_size, $navigation_link_line_height, $navigation_link_padding_y
+ */
+.navigation-icon-position-0 {
+	top: calc(.75rem + (2rem * 1.225 + 0.3333333333rem * 2) * 0);
+}
+
+.navigation-icon-position-1 {
+	top: calc(.75rem + (2rem * 1.225 + 0.3333333333rem * 2) * 1);
+}
+
+.navigation-icon-position-2 {
+	top: calc(.75rem + (2rem * 1.225 + 0.3333333333rem * 2) * 2);
+}
+
+.navigation-icon-position-3 {
+	top: calc(.75rem + (2rem * 1.225 + 0.3333333333rem * 2) * 3);
+}
+
+/*
+ * ToDo: ...
+ * ToDo -> $font_family_monserat
+ * ToDo -> $navigation_link_font_size
+ * ToDo -> $navigation_link_padding_y
+ * ToDo -> $navigation_link_padding_x
+ * ToDo -> $navigation_link_padding_x
+ * ToDo -> $navigation_link_padding_y
+ */
+.navigation-link {
+	color: hsl(0, 0%, 8%);
+	display: inline-block;
+	font-family: "Montserrat", sans-serif;
+	font-size: 2rem;
+	line-height: 1.225;
+	padding-bottom: 0.3333333333rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 0.3333333333rem;
+	text-decoration-line: none;
+}
+
+/*
+ * _page_2.scss (download):
+ * - .download-button
+ * - .download-link
+ * - .download-list
+ * - .icon-download-file
+ * - .icon-file-zip
+ */
+/* ToDo: ...
+ * ToDo -> $matching_gradient_4
+ * ToDo -> $shade_3
+ * ToDo -> $main_color
+ * ToDo -> $font_family_nunito
+ * ToDo -> $download_button_font_size
+ * ToDo -> $download_button_padding_y
+ * ToDo -> $download_button_padding_x
+ * ToDo -> $download_button_padding_x
+ * ToDo -> $download_button_padding_y
+ */
+.download-button {
+	background-color: hsl(178, 15%, 58%);
+	border-color: hsl(0, 0%, 59%);
+	border-style: solid;
+	border-width: 1px;
+	color: hsl(0, 0%, 8%);
+	display: inline-block;
+	font-family: "Nunito", sans-serif;
+	font-size: 1.25rem;
+	padding-bottom: 0.3333333333rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 0.3333333333rem;
+	text-decoration-line: none;
+}
+
+/* ToDo: ...
+ * ToDo -> $matching_gradient_4
+ * ToDo -> $font_family_nunito
+ * ToDo -> $download_link_font_size
+ */
+.download-link {
+	color: hsl(178, 15%, 58%);
+	font-family: "Nunito", sans-serif;
+	font-size: 1.25rem;
+	text-decoration-line: none;
+}
+
+/* ToDo: ...
+ * ToDo -> $margin_reset
+ * ToDo -> $padding_reset
+ */
+.download-list {
+	list-style-type: none;
+	margin-top: 0px;
+	padding-left: 0px;
+}
+
+/* ToDo: ...
+ * ToDo -> ...
+ */
+.icon-download-file > svg {
+	height: 1.25rem;
+	position: relative;
+	top: 0.15rem;
+}
+
+/* ToDo: ...
+ * ToDo -> $download_button_font_size
+ */
+.icon-file-zip > svg {
+	height: 1.25rem;
+	position: relative;
+	top: 0.15rem;
+}
+
+/*
+ * _page_3.scss (usage):
+ * - .code
+ * - .code-block
+ * - .code-container
+ * - .copy-button
+ * - .html-attribute
+ * - .html-element
+ * - .html-value
+ * - .icon-copy
+ * - .notification
+ */
+/* ToDo: ...
+ * ToDo -> $font_family_source_code_pro
+ * ToDo -> $code_padding_y
+ * ToDo -> $code_padding_x
+ * ToDo -> $code_padding_x
+ * ToDo -> $code_padding_y
+ */
+.code {
+	border-radius: 0.25rem;
+	font-family: "Source Code Pro", monospace;
+	font-size: 80%;
+	padding-bottom: 0.11rem;
+	padding-left: 0.33rem;
+	padding-right: 0.33rem;
+	padding-top: 0.11rem;
+	white-space: nowrap;
+}
+
+/* ToDo: ...
+ * ToDo -> $main_color
+ * ToDo -> $shade_2
+ * ToDo -> $font_family_source_code_pro
+ * ToDo -> $margin_reset
+ * ToDo -> $margin_reset
+ * ToDo -> 
+ */
+.code-block {
+	background-color: hsl(0, 0%, 8%);
+	color: hsl(0, 0%, 40%);
+	font-family: "Source Code Pro", monospace;
+	font-size: 1.25rem;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	overflow-x: auto;
+	padding: 1rem;
+	tab-size: 4;
+}
+
+/* ToDo: ... */
+.code-container {
+	position: relative;
+}
+
+/* ToDo: ...
+ * ToDo -> $shade_2
+ * ToDo: inline-flex to fit the height of the icon...
+ * ToDo -> $code_block_offset
+ * ToDo -> $code_block_offset
+ * ToDo -> $copy_button_z_index
+ * ToDo -> $transition_duration
+ * ToDo -> $transition_timing_function
+ */
+.copy-button {
+	background-color: inherit;
+	border: none;
+	color: hsl(0, 0%, 40%);
+	cursor: pointer;
+	display: inline-flex;
+	opacity: 0;
+	padding: 0;
+	position: absolute;
+	right: 0.5rem;
+	top: 0.5rem;
+	z-index: 2;
+}
+@media (prefers-reduced-motion: no-preference) {
+	.copy-button {
+		transition-duration: 0.375s;
+		transition-property: opacity;
+		transition-timing-function: ease;
+	}
+}
+.code-container:hover > .copy-button {
+	opacity: initial;
+}
+
+/* ToDo: ...
+ * ToDo -> $generic_gradient_4
+ */
+.html-attribute {
+	color: hsl(32, 90%, 68%);
+}
+
+/* ToDo: ...
+ * ToDo -> $html_element_color
+ * ToDo -> $html_element_color
+ */
+.html-element {
+	color: hsl(60, 92%, 71%);
+}
+.html-element.code {
+	background-color: #fefedf;
+}
+
+/* ToDo: ...
+ * ToDo -> $html_value_color
+ * ToDo -> $html_value_color
+ */
+.html-value {
+	color: hsl(10, 51%, 61%);
+}
+.html-value.code {
+	background-color: #eecfc9;
+}
+
+/* ToDo: ... */
+.icon-copy > svg {
+	height: 1.25rem;
+}
+
+/* ToDo: ...
+ * ToDo -> $spot_2
+ * ToDo -> $shade_3
+ * ToDo -> $main_color
+ * ToDo -> $font_family_nunito
+ * ToDo -> $notification_padding_y
+ * ToDo -> $notification_padding_x
+ * ToDo -> $notification_padding_x
+ * ToDo -> $notification_padding_y
+ * ToDo -> $code_block_offset
+ * ToDo -> $code_block_offset
+ * ToDo -> $notification_z_index
+ * ToDo -> $transition_duration
+ * ToDo -> $transition_timing_function
+ * ToDo -> $notification_z_index
+ */
+.notification {
+	background-color: hsl(259, 100%, 96%);
+	border-color: hsl(0, 0%, 59%);
+	border-radius: 0.25rem;
+	border-style: solid;
+	border-width: 1px;
+	color: hsl(0, 0%, 8%);
+	font-family: "Nunito", sans-serif;
+	font-size: 1.25rem;
+	line-height: 1.25;
+	padding-bottom: 0.3333333333rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 0.3333333333rem;
+	opacity: 0;
+	position: absolute;
+	right: 0.5rem;
+	top: 0.5rem;
+	z-index: 1;
+}
+@media (prefers-reduced-motion: no-preference) {
+	.notification {
+		transition-duration: 0.375s;
+		transition-property: opacity;
+		transition-timing-function: ease;
+	}
+}
+.notification.show {
+	opacity: 1;
+	z-index: 2;
+}/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,210 @@
+// Partials with variable and mixin definitions used in modules will be included.
+// For the partial "_variables.scss" the global namespace will be used.
+@use "partials/variables" as *;
+//ToDo: @use "partials/mixins";
+
+// Variables that are used inside the module "_page_3.scss" will be defined.
+$code_padding_x: .33rem;
+$code_padding_y: calc($code_padding_x / 3);
+$code_block_offset: .5rem;
+$copy_button_z_index: 2;
+$html_element_color: $generic_gradient_5;
+$html_value_color: $generic_gradient_3;
+$notification_padding_x: 1rem;
+$notification_padding_y: calc($notification_padding_x / 3);
+$notification_z_index: $copy_button_z_index - 1;
+$transition_duration: .375s;
+
+/*
+ * _page_3.scss (usage):
+ * - .code
+ * - .code-block
+ * - .code-container
+ * - .copy-button
+ * - .html-attribute
+ * - .html-element
+ * - .html-value
+ * - .icon-copy
+ * - .notification
+ */
+
+/* ToDo: ...
+ * ToDo -> $font_family_source_code_pro
+ * ToDo -> $code_padding_y
+ * ToDo -> $code_padding_x
+ * ToDo -> $code_padding_x
+ * ToDo -> $code_padding_y
+ */
+.code{
+	border-radius: .25rem;
+	font:{
+		family: $font_family_source_code_pro;
+		size: 80%;
+	}
+	padding:{
+		bottom: $code_padding_y;
+		left: $code_padding_x;
+		right: $code_padding_x;
+		top: $code_padding_y;
+		
+	}
+	white-space: nowrap;
+}
+
+/* ToDo: ...
+ * ToDo -> $main_color
+ * ToDo -> $shade_2
+ * ToDo -> $font_family_source_code_pro
+ * ToDo -> $margin_reset
+ * ToDo -> $margin_reset
+ * ToDo -> 
+ */
+.code-block{
+	background-color: $main_color;
+	color: $shade_2;
+	font:{
+		family: $font_family_source_code_pro;
+		size: 1.25rem;
+	}
+	margin:{
+		bottom: $margin_reset;
+		top: $margin_reset;
+	}
+	overflow-x: auto;
+	padding: 1rem;
+	tab-size: 4;
+}
+
+/* ToDo: ... */
+.code-container{
+	position: relative;
+}
+
+/* ToDo: ...
+ * ToDo -> $shade_2
+ * ToDo: inline-flex to fit the height of the icon...
+ * ToDo -> $code_block_offset
+ * ToDo -> $code_block_offset
+ * ToDo -> $copy_button_z_index
+ * ToDo -> $transition_duration
+ * ToDo -> $transition_timing_function
+ */
+.copy-button{
+	background-color: inherit;
+	border: none;
+	color: $shade_2;
+	cursor: pointer;
+	display: inline-flex;
+	opacity: 0;
+	padding: 0;
+	position: absolute;
+	right: $code_block_offset;
+	top: $code_block_offset;
+	z-index: $copy_button_z_index;
+
+	@media(prefers-reduced-motion: no-preference){
+		transition:{
+			duration: $transition_duration;
+			property: opacity;
+			timing-function: $transition_timing_function;
+		}
+	}
+
+	.code-container:hover>&{
+		opacity: initial;
+	}
+}
+
+/* ToDo: ...
+ * ToDo -> $generic_gradient_4
+ */
+.html-attribute{
+	color: $generic_gradient_4;
+}
+
+/* ToDo: ...
+ * ToDo -> $html_element_color
+ * ToDo -> $html_element_color
+ */
+.html-element{
+	color: $html_element_color;
+
+	&.code{
+		background-color: lighten($html_element_color, 22.5%);
+	}
+}
+
+/* ToDo: ...
+ * ToDo -> $html_value_color
+ * ToDo -> $html_value_color
+ */
+.html-value{
+	color: $html_value_color;
+
+	&.code{
+		background-color: lighten($html_value_color, 25%);
+	}
+}
+
+/* ToDo: ... */
+.icon-copy{
+	&>svg{
+		height: 1.25rem;
+	}
+}
+
+/* ToDo: ...
+ * ToDo -> $spot_2
+ * ToDo -> $shade_3
+ * ToDo -> $main_color
+ * ToDo -> $font_family_nunito
+ * ToDo -> $notification_padding_y
+ * ToDo -> $notification_padding_x
+ * ToDo -> $notification_padding_x
+ * ToDo -> $notification_padding_y
+ * ToDo -> $code_block_offset
+ * ToDo -> $code_block_offset
+ * ToDo -> $notification_z_index
+ * ToDo -> $transition_duration
+ * ToDo -> $transition_timing_function
+ * ToDo -> $notification_z_index
+ */
+.notification{
+	background-color: $spot_2;
+	border:{
+		color: $shade_3;
+		radius: .25rem;
+		style: solid;
+		width: 1px;
+	}
+	color: $main_color;
+	font:{
+		family: $font_family_nunito;
+		size: 1.25rem;
+	}
+	line-height: 1.25;
+	padding:{
+		bottom: $notification_padding_y;
+		left: $notification_padding_x;
+		right: $notification_padding_x;
+		top: $notification_padding_y;
+	}
+	opacity: 0;
+	position: absolute;
+	right: $code_block_offset;
+	top: $code_block_offset;
+	z-index: $notification_z_index;
+
+	@media(prefers-reduced-motion: no-preference){
+		transition:{
+			duration: $transition_duration;
+			property: opacity;
+			timing-function: $transition_timing_function;
+		}
+	}
+
+	&.show{
+		opacity: 1;
+		z-index: $notification_z_index + 1;
+	}
+}

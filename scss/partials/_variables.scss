@@ -1,0 +1,32 @@
+// _variables.scss:
+// - colors
+// - fonts
+// - resets
+// - animations
+
+// colors
+// The color variables suggested by the website "ColorSpace" (https://mycolor.space/) will be defined.
+$main_color: hsl(0, 0%, 8%);
+$generic_gradient_3: hsl(10, 51%, 61%);
+$generic_gradient_4: hsl(32, 90%, 68%);
+$generic_gradient_5: hsl(60, 92%, 71%);
+$matching_gradient_4: hsl(178, 15%, 58%);
+$spot_2: hsl(259, 100%, 96%);
+//ToDo: $shade_1: hsl(0, 0%, 23%);
+$shade_2: hsl(0, 0%, 40%);
+$shade_3: hsl(0, 0%, 59%);
+
+// fonts
+// Font families included through the website "Google Fonts" (https://fonts.google.com/) will be defined.
+$font_family_monserat: "Montserrat", sans-serif;
+$font_family_nunito: "Nunito", sans-serif;
+$font_family_source_code_pro: "Source Code Pro", monospace;
+
+// resets
+// ToDo: ...
+$margin_reset: 0px;
+$padding_reset: 0px;
+
+// animations
+// ToDo: ...
+$transition_timing_function: ease;

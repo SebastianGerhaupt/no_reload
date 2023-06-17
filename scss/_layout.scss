@@ -1,0 +1,173 @@
+// Partials with variable definitions used in modules will be included.
+// For the partial "_variables.scss" the global namespace will be used.
+@use "partials/variables" as *;
+
+// Variables that are used inside the module "_layout.scss" will be defined.
+$column_count: 12;
+$container_padding_y: 8rem;
+$grid_gutter_width: 1rem;
+$heading_font_size: 4rem;
+$universal_box_sizing: border-box;
+
+/*
+ * _layout.scss:
+ * - .column-#
+ * - %column
+ * - .container
+ * - .heading
+ * - .no-reload-label
+ * - .paragraph
+ * - .row
+ * - .section-container
+ * - .sticky
+ * - *
+ */
+
+/*
+ * A "column #" is a container for content.
+ * Columns are used inside rows, so they are flex-items. -> .row
+ * There is a maximum count of columns inside a row. -> $column_count
+ * The column width is set in percentage so they will always have the same relative size. -> $column_count, $grid_gutter_width
+ * ToDo -> %column
+ */
+@for $i from 1 through $column_count{
+	.column-#{$i}{
+		width: calc(100% / (#{$column_count} / #{$i}) - #{$grid_gutter_width} * (#{$column_count} - #{$i}) / #{$column_count});
+		@extend %column;
+	}
+}
+
+/*
+ * ToDo: ...
+ * Columns have spacing between them. -> $grid_gutter_width
+ */
+%column{
+	&+&{
+		margin-left: $grid_gutter_width;
+	}
+}
+
+/*
+ * ToDo: ...
+ * ToDo -> $margin_reset
+ * ToDo -> $container_padding_y
+ * ToDo -> $container_padding_y
+ */
+.container{
+	margin: $margin_reset;
+	padding:{
+		bottom: $container_padding_y;
+		top: $container_padding_y;
+	}
+}
+
+/*
+ * ToDo: ...
+ * ToDo -> $main_color
+ * ToDo -> $font_family_monserat
+ * ToDo -> $container_padding_y
+ * ToDo -> $margin_reset
+ * ToDo -> $heading_font_size, $matching_gradient_4
+ */
+.heading{
+	color: $main_color;
+	font:{
+		family: $font_family_monserat;
+		size: $heading_font_size;
+		weight: 900;
+	}
+	line-height: 1;
+	margin:{
+		bottom: $container_padding_y;
+		top: $margin_reset;
+	}
+	text-shadow: $heading_font_size $heading_font_size * .33 $matching_gradient_4;
+}
+
+/*
+ * ToDo: ...
+ * ToDo -> ...
+ */
+.no-reload-label{
+	font-weight: 900;
+	pointer-events: none;
+}
+
+/*
+ * ToDo: ...
+ * ToDo -> $main_color
+ * ToDo -> $font_family_nunito
+ * ToDo -> $margin_reset
+ */
+.paragraph{
+	color: $main_color;
+	font:{
+		family: $font_family_nunito;
+		size: 1.25rem;
+	}
+	margin-top: $margin_reset;
+}
+
+/*
+ * A "row" is a wrapper for columns. -> .column-#
+ * Rows are flex-containers.
+ * Columns are horizontally and vertically centered inside rows.
+ * Rows have vertical spacing between them. -> $grid_gutter_width
+ */
+.row{
+	display: flex;
+	flex-wrap: wrap;
+
+	&+&{
+		margin-top: $grid_gutter_width;
+	}
+}
+
+/* ToDo: ... */
+.section-container{
+	&+&{
+		margin-top: 8rem;
+	}
+}
+
+/*
+ * ToDo: ...
+ * ToDo -> $container_padding_y
+ */
+.sticky{
+	margin:{
+		left: auto;
+		right: auto;
+	}
+	position: sticky;
+	top: $container_padding_y;
+	width: fit-content;
+}
+
+/*
+ * The universal selector sets definitions for all elements.
+ * The box-sizing for all elements is set. -> $universal_box_sizing
+ * The pseudo-elements "::before" and "::after" of every element get the same box-sizing value as the selected element.
+ * ToDo: ...
+ * ToDo -> $grid_gutter_width
+ * ToDo -> $margin_reset
+ */
+*{
+	box-sizing: $universal_box_sizing;
+
+	&::before{
+		box-sizing: $universal_box_sizing;
+	}
+
+	&::after{
+		box-sizing: $universal_box_sizing;
+	}
+
+	.section-container>&{
+		margin-bottom: $grid_gutter_width;
+	}
+
+	.section-container>&:last-child{
+		margin-bottom: $margin_reset;
+	}
+}

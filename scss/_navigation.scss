@@ -1,0 +1,92 @@
+// Partials with variable and mixin definitions used in modules will be included.
+// For the partial "_variables.scss" the global namespace will be used.
+@use "partials/variables" as *;
+//ToDo: @use "partials/mixins";
+
+// Variables that are used inside the module "_navigation.scss" will be defined.
+$navigation_link_count: 4;
+$navigation_link_font_size: 2rem;
+$navigation_link_line_height: 1.225;
+$navigation_link_padding_x: 1rem;
+$navigation_link_padding_y: calc($navigation_link_padding_x / 3);
+
+/*
+ * _navigation.scss (header):
+ * - .icon-arrow-right-short
+ * - .navigation
+ * - .navigation-icon-position-#
+ * - .navigation-link
+ */
+
+/*
+ * ToDo: ...
+ * ToDo -> $navigation_link_font_size
+ */
+.icon-arrow-right-short{
+	left: -1.5rem;
+	position: absolute;
+
+	@media(prefers-reduced-motion: no-preference){
+		transition:{
+			duration: .5s;
+			property: top;
+			timing-function: $transition_timing_function;
+		}
+	}
+
+	&>svg{
+		height: $navigation_link_font_size;
+	}
+}
+
+/*
+ * ToDo: ...
+ * ToDo -> $margin_reset
+ * ToDo -> $margin_reset
+ * ToDo -> $padding_reset
+ */
+.navigation{
+	list-style-type: none;
+	margin:{
+		bottom: $margin_reset;
+		top: $margin_reset;
+	}
+	padding-left: $padding_reset;
+}
+
+/*
+ * ToDo: ...
+ * ToDo -> $navigation_link_count
+ * ToDo -> $navigation_link_font_size, $navigation_link_line_height, $navigation_link_padding_y
+ */
+@for $i from 0 to $navigation_link_count{
+	.navigation-icon-position-#{$i}{
+		top: calc(.75rem + (#{$navigation_link_font_size} * #{$navigation_link_line_height} + #{$navigation_link_padding_y} * 2) * #{$i});
+	}
+}
+
+/*
+ * ToDo: ...
+ * ToDo -> $font_family_monserat
+ * ToDo -> $navigation_link_font_size
+ * ToDo -> $navigation_link_padding_y
+ * ToDo -> $navigation_link_padding_x
+ * ToDo -> $navigation_link_padding_x
+ * ToDo -> $navigation_link_padding_y
+ */
+.navigation-link{
+	color: $main_color;
+	display: inline-block;
+	font:{
+		family: $font_family_monserat;
+		size: $navigation_link_font_size;
+	}
+	line-height: $navigation_link_line_height;
+	padding:{
+		bottom: $navigation_link_padding_y;
+		left: $navigation_link_padding_x;
+		right: $navigation_link_padding_x;
+		top: $navigation_link_padding_y;
+	}
+	text-decoration-line: none;
+}

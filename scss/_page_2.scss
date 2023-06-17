@@ -1,0 +1,99 @@
+// Partials with variable and mixin definitions used in modules will be included.
+// For the partial "_variables.scss" the global namespace will be used.
+@use "partials/variables" as *;
+//ToDo: @use "partials/mixins";
+
+// Variables that are used inside the module "_page_2.scss" will be defined.
+$download_button_font_size: 1.25rem;
+$download_button_padding_x: 1rem;
+$download_button_padding_y: calc($download_button_padding_x / 3);
+$download_link_font_size: 1.25rem;
+$icon_top: .15rem;
+
+/*
+ * _page_2.scss (download):
+ * - .download-button
+ * - .download-link
+ * - .download-list
+ * - .icon-download-file
+ * - .icon-file-zip
+ */
+
+/* ToDo: ...
+ * ToDo -> $matching_gradient_4
+ * ToDo -> $shade_3
+ * ToDo -> $main_color
+ * ToDo -> $font_family_nunito
+ * ToDo -> $download_button_font_size
+ * ToDo -> $download_button_padding_y
+ * ToDo -> $download_button_padding_x
+ * ToDo -> $download_button_padding_x
+ * ToDo -> $download_button_padding_y
+ */
+.download-button{
+	background-color: $matching_gradient_4;
+	border:{
+		color: $shade_3;
+		style: solid;
+		width: 1px;
+	}
+	color: $main_color;
+	display: inline-block;
+	font:{
+		family: $font_family_nunito;
+		size: $download_button_font_size;
+	}
+	padding:{
+		bottom: $download_button_padding_y;
+		left: $download_button_padding_x;
+		right: $download_button_padding_x;
+		top: $download_button_padding_y;
+	}
+	text-decoration-line: none;
+}
+
+/* ToDo: ...
+ * ToDo -> $matching_gradient_4
+ * ToDo -> $font_family_nunito
+ * ToDo -> $download_link_font_size
+ */
+.download-link{
+	color: $matching_gradient_4;
+	font:{
+		family: $font_family_nunito;
+		size: $download_link_font_size;
+	}
+	text-decoration-line: none;
+}
+
+/* ToDo: ...
+ * ToDo -> $margin_reset
+ * ToDo -> $padding_reset
+ */
+.download-list{
+	list-style-type: none;
+	margin-top: $margin_reset;
+	padding-left: $padding_reset;
+}
+
+/* ToDo: ...
+ * ToDo -> ...
+ */
+.icon-download-file{
+	&>svg{
+		height: $download_link_font_size;
+		position: relative;
+		top: $icon_top;
+	}
+}
+
+/* ToDo: ...
+ * ToDo -> $download_button_font_size
+ */
+.icon-file-zip{
+	&>svg{
+		height: $download_button_font_size;
+		position: relative;
+		top: $icon_top;
+	}
+}

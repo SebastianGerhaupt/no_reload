@@ -1,0 +1,7 @@
+// Modules with style definitions used in multiple parts will be included.
+@use "layout";
+@use "navigation";
+
+// Modules with style definitions used in one single part will be included.
+@use "page_2";
+@use "page_3";
